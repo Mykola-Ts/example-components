@@ -1,0 +1,2 @@
+const t={accordion:document.querySelector(".accordion"),items:document.querySelectorAll(".accordion button")};t.accordion.addEventListener("click",(function(e){!function(e,o=!0){if(!e.target.closest(".accordion-button"))return;const c=e.target.closest(".accordion-button"),n=c.getAttribute("aria-expanded");o&&t.items.forEach((t=>t.setAttribute("aria-expanded","false")));c.setAttribute("aria-expanded","false"===n?"true":"false")}(e,!0)}));
+//# sourceMappingURL=accordion-page.cd14bd5a.js.map

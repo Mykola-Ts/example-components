@@ -1,2 +1,0 @@
-!function(){var t={accordion:document.querySelector(".accordion"),items:document.querySelectorAll(".accordion button")};t.accordion.addEventListener("click",(function(e){if(e.target.closest(".accordion-button")){var o=e.target.closest(".accordion-button"),r=o.getAttribute("aria-expanded");t.items.forEach((function(t){return t.setAttribute("aria-expanded","false")})),"false"===r&&o.setAttribute("aria-expanded","true")}}))}();
-//# sourceMappingURL=accordion-page.1be763fe.js.map
