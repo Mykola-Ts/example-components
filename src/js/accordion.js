@@ -3,18 +3,27 @@ const selectors = {
   items: document.querySelectorAll('.accordion button'),
 };
 
-function toggleAccordion(evt) {
+selectors.accordion.addEventListener('click', handlerToggleAccordion);
+
+function handlerToggleAccordion(evt) {
+  toggleAccordion(evt, true);
+}
+
+function toggleAccordion(evt, isMustCloseOthers = true) {
   if (!evt.target.closest('.accordion-button')) return;
 
   const currentItem = evt.target.closest('.accordion-button');
 
   const itemToggle = currentItem.getAttribute('aria-expanded');
 
-  selectors.items.forEach(item => item.setAttribute('aria-expanded', 'false'));
-
-  if (itemToggle === 'false') {
-    currentItem.setAttribute('aria-expanded', 'true');
+  if (isMustCloseOthers) {
+    selectors.items.forEach(item =>
+      item.setAttribute('aria-expanded', 'false')
+    );
   }
-}
 
-selectors.accordion.addEventListener('click', toggleAccordion);
+  currentItem.setAttribute(
+    'aria-expanded',
+    itemToggle === 'false' ? 'true' : 'false'
+  );
+}
