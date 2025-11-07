@@ -1,20 +1,10 @@
+@import './index.css';
 @import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 body {
   display: flex;
 
   min-height: 100vh;
-  padding: 0;
-  margin: 0;
 
   font-family: 'Hind', sans-serif;
 
