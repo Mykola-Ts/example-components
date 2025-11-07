@@ -1,0 +1,2 @@
+!function(){var e={searchIcon:document.querySelector(".search-icon"),searchIconInput:document.querySelector(".search-icon-input"),searchIconWrapper:document.querySelector(".search-icon-wrapper")};e.searchIconWrapper.addEventListener("click",(function(){e.searchIcon.classList.contains("open")&&(e.searchIconInput.value="");e.searchIcon.classList.toggle("open")})),e.searchIconInput.addEventListener("input",(function(e){console.log(e.target.value)}))}();
+//# sourceMappingURL=search-input-page.6549433d.js.map
