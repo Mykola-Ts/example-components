@@ -17,5 +17,7 @@ body {
 }
 
 .go-back-link {
+  width: fit-content;
+
   font-size: 20px;
 }

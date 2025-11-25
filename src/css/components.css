@@ -1,0 +1,6 @@
+@import './index.css';
+@import './checkbox-animation.css';
+
+.checkbox-container {
+  margin: 0 auto;
+}

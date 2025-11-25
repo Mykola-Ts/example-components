@@ -1,3 +1,5 @@
+@import './index.css';
+
 :root {
   --coin-base-hue: 163;
   --coin-detail-hue: 43;
