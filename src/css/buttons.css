@@ -1,2 +1,9 @@
 @import './index.css';
 @import './pulsing-button.css';
+@import './click-me-button.css';
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

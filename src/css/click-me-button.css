@@ -1,0 +1,115 @@
+:root {
+  --color: #111;
+  --primary-color: #ffab9d;
+  --primary-color-with-transparency: rgba(255, 171, 157, 0.5);
+
+  --base-size: 56px;
+
+  --transition-duration: 0.3s;
+  --transition-timing-function: ease;
+}
+
+.click-me-btn {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  border: none;
+  border-radius: calc(var(--base-size) / 2);
+  padding: 20px 22px;
+  margin: auto;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  color: currentColor;
+  background-color: transparent;
+
+  transition: transform var(--transition-duration)
+    var(--transition-timing-function);
+}
+
+.click-me-btn:active {
+  transform: scale(0.96);
+}
+
+.click-me-btn:before,
+.click-me-btn:after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  height: var(--base-size);
+}
+
+.click-me-btn:before {
+  width: var(--base-size);
+  border-radius: calc(var(--base-size) / 2);
+
+  background-color: var(--primary-color-with-transparency);
+
+  transition: background-color var(--transition-duration)
+    var(--transition-timing-function);
+}
+
+.click-me-btn:after {
+  transform: scaleX(0);
+  transform-origin: left center;
+  z-index: -1;
+
+  width: 100%;
+  border-radius: 0 calc(var(--base-size) / 2) calc(var(--base-size) / 2) 0;
+
+  background-color: transparent;
+
+  transition: transform var(--transition-duration)
+      var(--transition-timing-function),
+    background-color var(--transition-duration)
+      var(--transition-timing-function);
+}
+
+.click-me-btn:hover:before,
+.click-me-btn:hover::after {
+  background-color: var(--primary-color);
+}
+
+.click-me-btn:hover::after {
+  transform: scaleX(1);
+}
+
+.click-me-btn span {
+  position: relative;
+
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.click-me-btn svg {
+  position: relative;
+  top: 0;
+  transform: translateX(-5px);
+
+  margin-left: 10px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+
+  transition: transform var(--transition-duration)
+    var(--transition-timing-function);
+}
+
+.click-me-btn:hover svg {
+  transform: translateX(0);
+}
