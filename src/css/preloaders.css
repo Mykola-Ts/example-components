@@ -1,0 +1,9 @@
+@import './index.css';
+@import './coin-preloader.css';
+@import './cup-preloader.css';
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

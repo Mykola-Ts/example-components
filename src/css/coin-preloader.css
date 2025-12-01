@@ -1,5 +1,3 @@
-@import './index.css';
-
 :root {
   --coin-base-hue: 163;
   --coin-detail-hue: 43;
@@ -18,10 +16,10 @@
   --ease-out-cubic: cubic-bezier(0.33, 1, 0.67, 1);
 }
 
-body {
+.wrapper {
   display: flex;
 
-  height: 100vh;
+  padding: 40px;
 
   font: 1em/1.5 sans-serif;
 

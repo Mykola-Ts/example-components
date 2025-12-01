@@ -1,0 +1,112 @@
+:root {
+  --primary-color: #81a291;
+  --cup-color: #90ae9d;
+  --background-color-cup: #c9d5cf;
+  --steam-color: #e9efea;
+
+  --gutter: 8px;
+}
+
+.grid {
+  display: grid;
+  place-items: center;
+
+  height: 100%;
+  padding: 80px;
+
+  background-color: var(--background-color-cup);
+}
+
+.cup {
+  position: relative;
+  transform: translateY(calc(var(--gutter) * 6));
+
+  display: grid;
+
+  width: calc(var(--gutter) * 12);
+  height: calc(var(--gutter) * 9);
+  border-radius: calc(var(--gutter) * 2) calc(var(--gutter) * 2)
+    calc(var(--gutter) * 6) calc(var(--gutter) * 6);
+
+  background-color: var(--cup-color);
+}
+
+.cup-handler {
+  position: absolute;
+  transform: translate(62.5%, -18.75%);
+
+  place-self: center end;
+
+  width: calc(var(--gutter) * 5);
+  height: calc(var(--gutter) * 5);
+  border: calc(var(--gutter) * 0.5) solid var(--cup-color);
+  border-radius: calc(var(--gutter) * 4) calc(var(--gutter) * 2)
+    calc(var(--gutter) * 4) calc(var(--gutter) * 2.5);
+  border-left-width: calc(var(--gutter) * 1);
+
+  background-color: var(--background-color-cup);
+}
+
+.cup-steam {
+  position: absolute;
+  transform: translateY(calc(var(--gutter) * -9));
+
+  place-self: start center;
+
+  width: calc(var(--gutter) * 4);
+  height: calc(var(--gutter) * 6);
+  border-radius: calc(var(--gutter) * 5) calc(var(--gutter) * 2.5);
+
+  background-color: var(--steam-color);
+}
+
+.cup-steam-flow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: calc(var(--gutter) * 1);
+
+  background-color: var(--background-color-cup);
+
+  animation: steam-flow 1s linear infinite;
+}
+
+.cup-steam-flow::before,
+.cup-steam-flow::after {
+  content: '';
+
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  height: calc(var(--gutter) * 1);
+}
+
+.cup-steam-flow::before {
+  bottom: 0;
+  transform: translateY(100%);
+
+  border-radius: calc(var(--gutter) * 0.5) calc(var(--gutter) * 0.5) 0 0;
+
+  box-shadow: 0 calc(var(--gutter) * -0.5) 0 0 var(--background-color-cup);
+}
+
+.cup-steam-flow::after {
+  transform: translateY(-100%);
+  top: 0;
+
+  border-radius: 0 0 calc(var(--gutter) * 0.5) calc(var(--gutter) * 0.5);
+
+  box-shadow: 0 calc(var(--gutter) * 0.5) 0 0 var(--background-color-cup);
+}
+
+@keyframes steam-flow {
+  from {
+    transform: translateY(calc(var(--gutter) * 7));
+  }
+  to {
+    transform: translateY(calc(var(--gutter) * -1));
+  }
+}
