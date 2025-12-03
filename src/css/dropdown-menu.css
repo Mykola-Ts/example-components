@@ -1,0 +1,244 @@
+@import './index.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --bg-color: #222429;
+  --primary-bg-color: #333740;
+  --primary-color: #2c62f6;
+  --text-color: #b1b8ca;
+  --text-active: #ffffff;
+  --button-hover-bg-color: #2b2e34;
+  --border-color: #494d59;
+  --list-opacity: 0;
+
+  --translate-value: 0;
+  --rotate-arrow: 0;
+  --dropdown-height: 0;
+  --border-radius: 1.4rem;
+  --list-button-height: 4.6rem;
+
+  --floating-icon-size: 26;
+  --floating-icon-top: 0;
+  --floating-icon-left: 0;
+
+  --transition-time: 0.4s;
+  --transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1.5rem;
+
+  line-height: 1.4;
+
+  background-color: var(--bg-color);
+}
+
+button {
+  border: none;
+
+  cursor: pointer;
+
+  background-color: transparent;
+  outline: none;
+}
+
+svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 34rem;
+  margin-top: 30vh;
+}
+
+.dropdown-title-icon,
+.dropdown-arrow {
+  display: inline-flex;
+}
+
+.dropdown-title {
+  margin: 0 auto 0 1.8rem;
+
+  text-transform: capitalize;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+
+  padding: 0 1.8rem;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+
+.dropdown-button svg {
+  fill: var(--text-color);
+
+  transition: all var(--transition-time) var(--transition-timing);
+}
+
+.dropdown-button svg,
+.dropdown-button span {
+  pointer-events: none;
+}
+
+.dropdown-button:hover,
+.dropdown-button:focus {
+  color: var(--text-active);
+}
+
+.dropdown-button:hover svg,
+.dropdown-button:focus svg {
+  fill: var(--text-active);
+}
+
+.main-button {
+  height: 5.2rem;
+  border: 0.1rem solid var(--border-color);
+  border-radius: var(--border-radius);
+
+  color: var(--text-color);
+  background-color: var(--primary-bg-color);
+
+  transition: all var(--transition-time) var(--transition-timing);
+}
+
+.main-button:focus {
+  border: 0.1rem solid var(--primary-color);
+
+  box-shadow: 0 0 0 0.2rem rgba(44, 98, 246, 0.4);
+}
+
+.main-button .dropdown-arrow {
+  transform: rotate(var(--rotate-arrow));
+
+  margin-left: 1.8rem;
+
+  transition: transform var(--transition-time) var(--transition-timing);
+}
+
+.list-button {
+  height: var(--list-button-height);
+
+  overflow: hidden;
+  cursor: none;
+
+  color: var(--text-color);
+
+  transition: color var(--transition-time) var(--transition-timing);
+}
+
+.dropdown-list-container {
+  max-height: var(--dropdown-height);
+
+  overflow: hidden;
+
+  transition: max-height var(--transition-time) var(--transition-timing);
+}
+
+.dropdown-list-wrapper {
+  position: relative;
+
+  border: 0.1rem solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-top: 1rem;
+
+  background-color: var(--primary-bg-color);
+}
+
+ul.dropdown-list {
+  position: relative;
+
+  list-style-type: none;
+}
+
+ul.dropdown-list::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateY(var(--translate-value));
+  z-index: 0;
+
+  height: var(--list-button-height);
+  border-radius: var(--border-radius);
+
+  background-color: var(--button-hover-bg-color);
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: all var(--transition-time) linear;
+}
+
+ul.dropdown-list:hover::before,
+ul.dropdown-list:hover ~ .floating-icon {
+  opacity: 1;
+}
+
+li.dropdown-list-item {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: var(--list-opacity);
+
+  transition: opacity 0.8s var(--transition-timing);
+}
+
+.floating-icon {
+  position: absolute;
+  top: var(--floating-icon-top);
+  left: var(--floating-icon-left);
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: calc(var(--floating-icon-size) * 1px);
+  height: calc(var(--floating-icon-size) * 1px);
+  border-radius: 1rem;
+
+  pointer-events: none;
+
+  background-color: var(--border-color);
+  opacity: 0;
+
+  transition: opacity var(--transition-time) var(--transition-timing);
+}
+
+.floating-icon svg {
+  fill: var(--text-active);
+}
