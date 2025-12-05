@@ -22,15 +22,24 @@ const icons = {
 
 const listItems = ['Linkedin', 'Instagram', 'Facebook', 'Twitter', 'Youtube'];
 
-const iconTemplate = path => {
+window.addEventListener('load', () => {
+  renderListItems();
+});
+
+selectors.mainButton.addEventListener('click', toggleDropdown);
+selectors.dropdownList.addEventListener('mouseover', handleDropdownItemHover);
+selectors.dropdownList.addEventListener('click', handleDropdownItemClick);
+selectors.dropdownList.addEventListener('mousemove', handlerDropdownHover);
+
+function iconTemplate(path) {
   return `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
       <path d="${path}" />
     </svg>
   `;
-};
+}
 
-const listItemTemplate = (text, translateValue) => {
+function listItemTemplate(text, translateValue) {
   return `
     <li class="dropdown-list-item">
       <button class="dropdown-button list-button" data-translate-value="${translateValue}%">
@@ -38,21 +47,17 @@ const listItemTemplate = (text, translateValue) => {
       </button>
     </li>
   `;
-};
+}
 
-const renderListItems = () => {
+function renderListItems() {
   selectors.dropdownList.innerHTML += listItems
     .map((item, index) => {
       return listItemTemplate(item, 100 * index);
     })
     .join('');
-};
+}
 
-window.addEventListener('load', () => {
-  renderListItems();
-});
-
-const setDropdownProps = (deg, ht, opacity) => {
+function setDropdownProps(deg, ht, opacity) {
   selectors.root.style.setProperty(
     '--rotate-arrow',
     deg !== 0 ? deg + 'deg' : 0
@@ -62,41 +67,54 @@ const setDropdownProps = (deg, ht, opacity) => {
     ht !== 0 ? ht + 'rem' : 0
   );
   selectors.root.style.setProperty('--list-opacity', opacity);
-};
+}
 
-selectors.mainButton.addEventListener('click', () => {
-  const listWrapperSizes = 3.5;
-  const dropdownOpenHeight = 4.6 * listItems.length + listWrapperSizes;
+function toggleDropdown() {
   const currDropdownHeight =
     selectors.root.style.getPropertyValue('--dropdown-height') || '0';
 
-  currDropdownHeight === '0'
-    ? setDropdownProps(180, dropdownOpenHeight, 1)
-    : setDropdownProps(0, 0, 0);
-});
+  currDropdownHeight === '0' ? openDropdown() : closeDropdown();
+}
 
-selectors.dropdownList.addEventListener('mouseover', e => {
-  const translateValue = e.target.dataset.translateValue;
+function openDropdown() {
+  const listWrapperSizes = 3.5;
+  const dropdownOpenHeight = 4.6 * listItems.length + listWrapperSizes;
+
+  setDropdownProps(180, dropdownOpenHeight, 1);
+
+  document.addEventListener('click', closeDropdownByClickOutside);
+  window.addEventListener('keydown', closeDropdownByEscape);
+}
+
+function closeDropdown() {
+  setDropdownProps(0, 0, 0);
+
+  document.removeEventListener('click', closeDropdownByClickOutside);
+  window.removeEventListener('keydown', closeDropdownByEscape);
+}
+
+function handleDropdownItemHover(evt) {
+  const translateValue = evt.target.dataset.translateValue;
 
   selectors.root.style.setProperty('--translate-value', translateValue);
-});
+}
 
-selectors.dropdownList.addEventListener('click', e => {
-  const clickedItemText = e.target.innerText.toLowerCase().trim();
+function handleDropdownItemClick(evt) {
+  const clickedItemText = evt.target.innerText.toLowerCase().trim();
   const clickedItemIcon = icons[clickedItemText];
 
   selectors.dropdownTitleIcon.innerHTML = iconTemplate(clickedItemIcon);
   selectors.dropdownTitle.innerHTML = clickedItemText;
 
   setDropdownProps(0, 0, 0);
-});
+}
 
-selectors.dropdownList.addEventListener('mousemove', e => {
+function handlerDropdownHover(evt) {
   const iconSize =
     selectors.root.style.getPropertyValue('--floating-icon-size') || 0;
-  const x = e.clientX - selectors.dropdownList.getBoundingClientRect().x;
-  const y = e.clientY - selectors.dropdownList.getBoundingClientRect().y;
-  const targetText = e.target.innerText.toLowerCase().trim();
+  const x = evt.clientX - selectors.dropdownList.getBoundingClientRect().x;
+  const y = evt.clientY - selectors.dropdownList.getBoundingClientRect().y;
+  const targetText = evt.target.innerText.toLowerCase().trim();
   const hoverItemText = icons[targetText];
 
   selectors.floatingIcon.innerHTML = iconTemplate(hoverItemText);
@@ -108,4 +126,16 @@ selectors.dropdownList.addEventListener('mousemove', e => {
     '--floating-icon-top',
     y - iconSize / 2 + 'px'
   );
-});
+}
+
+function closeDropdownByEscape(evt) {
+  if (evt.code === 'Escape') {
+    closeDropdown();
+  }
+}
+
+function closeDropdownByClickOutside(evt) {
+  if (!evt.target.closest('.dropdown-container')) {
+    closeDropdown();
+  }
+}

@@ -119,6 +119,7 @@ svg {
 }
 
 .main-button {
+  min-width: 180px;
   height: 5.2rem;
   border: 0.1rem solid var(--border-color);
   border-radius: var(--border-radius);
