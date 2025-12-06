@@ -1,0 +1,61 @@
+@import './index.css';
+
+:root {
+  --thickness-line: 0.1em;
+
+  --accent-color: #1095c1;
+  --color: #000;
+  --transparent-black: #0000;
+
+  --transition-duration: 300ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+}
+
+.menu-item {
+  padding: 0 0.1em;
+  margin: 40px 0;
+
+  cursor: pointer;
+
+  font-family: system-ui, sans-serif;
+  font-size: 3rem;
+}
+
+.hover {
+  padding-bottom: var(--thickness-line);
+
+  color: var(--transparent-black);
+  background: linear-gradient(90deg, var(--accent-color) 50%, var(--color) 0)
+      calc(100% - var(--_p, 0%)) / 200% 100%,
+    linear-gradient(var(--accent-color) 0 0) 0% 100% / var(--_p, 0%)
+      var(--thickness-line) no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+
+  transition: 0.5s var(--transition-timing-function);
+}
+
+.hover:hover {
+  --_p: 100%;
+}
+
+.hover-1 {
+  overflow: hidden;
+
+  line-height: 1.2em;
+
+  color: var(--transparent-black);
+  text-shadow: 0 0 var(--color), 0 1.2em #1095c1;
+
+  transition: text-shadow var(--transition-duration)
+    var(--transition-timing-function);
+}
+
+.hover-1:hover {
+  text-shadow: 0 -1.2em var(--color), 0 0 #1095c1;
+}
