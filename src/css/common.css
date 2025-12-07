@@ -20,6 +20,8 @@ body {
 }
 
 .go-back-link {
+  align-self: flex-start;
+
   width: fit-content;
 
   font-size: 20px;
