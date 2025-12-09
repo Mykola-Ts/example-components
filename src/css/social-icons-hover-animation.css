@@ -1,0 +1,113 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+:root {
+  --white-color: #fff;
+  --icon-color: #ff003c;
+  --accent-color: #c648c8;
+  --grape-color: #7b00e0;
+  --orchid-color: #ae31d9;
+
+  --transition-duration: 265ms;
+}
+
+.social-container {
+  width: 400px;
+  margin: 40vh auto;
+
+  text-align: center;
+}
+
+.social-icons {
+  padding: 0;
+  margin: 1em;
+
+  list-style: none;
+}
+
+.social-icons li {
+  position: relative;
+
+  display: inline-block;
+
+  margin: 0.15em;
+
+  font-size: 1.2em;
+}
+
+.social-icons i {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+
+  color: var(--white-color);
+
+  transition: transform var(--transition-duration) ease-out,
+    color var(--transition-duration) ease-out,
+    background var(--transition-duration) ease-out,
+    -webkit-text-fill-color var(--transition-duration) ease-out;
+}
+
+.social-icons a:hover i {
+  transform: scale(2.2);
+
+  color: var(--icon-color);
+  background: linear-gradient(45deg, var(--icon-color), var(--accent-color));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: transform var(--transition-duration) ease-in,
+    color var(--transition-duration) ease-in,
+    background var(--transition-duration) ease-in,
+    -webkit-text-fill-color var(--transition-duration) ease-in;
+}
+
+.social-icons a {
+  display: inline-block;
+}
+
+.social-icons a:before {
+  content: ' ';
+
+  transform: scale(1);
+
+  display: block;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+
+  background: linear-gradient(45deg, var(--icon-color), var(--accent-color));
+
+  transition: transform var(--transition-duration) ease-out;
+}
+
+.social-icons a:hover:before {
+  transform: scale(0);
+
+  transition: transform var(--transition-duration) ease-in;
+}
+
+a.social-square:before {
+  border-radius: 10%;
+
+  background: linear-gradient(45deg, var(--grape-color), var(--orchid-color));
+
+  transition: transform var(--transition-duration) ease-in,
+    border-radius var(--transition-duration) ease-in;
+}
+
+a.social-square:hover:before {
+  transform: rotate(-180deg);
+
+  border-radius: 100%;
+
+  transition: transform var(--transition-duration) ease-out,
+    border-radius var(--transition-duration) ease-out;
+}
+
+a.social-square:hover i {
+  transform: scale(1.6);
+
+  color: var(--white-color);
+  -webkit-text-fill-color: var(--white-color);
+}

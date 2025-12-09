@@ -1,6 +1,7 @@
 @import './index.css';
 @import './checkbox-animation.css';
 @import './burger-menu-animation.css';
+@import './social-icons-hover-animation.css';
 
 body {
   display: flex;
