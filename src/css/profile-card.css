@@ -1,0 +1,216 @@
+@import './index.css';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+:root {
+  --font-family: 'Poppins', sans-serif;
+
+  --black-color: #212121;
+  --white-color: #f1f1f1;
+
+  --transition-duration: 500ms;
+  --transition-timing-function: ease-in-out;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 71.42%;
+
+  background-color: color-mix(in srgb, var(--black-color) 10%, white 90%);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+}
+
+.profile-card {
+  position: relative;
+
+  width: 250px;
+  height: 374px;
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  background-color: var(--white-color);
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.4);
+}
+
+.profile-card .profile-image {
+  position: absolute;
+  transform: translate(0, 0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  max-height: 100%;
+  margin: auto;
+
+  transition: all var(--transition-timing-function) var(--transition-duration);
+}
+
+.profile-card .profile-image::after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  margin: auto;
+
+  background-color: rgba(33, 33, 33, 0.2);
+
+  transition: all var(--transition-timing-function) var(--transition-duration);
+}
+
+.profile-card .profile-image img {
+  max-width: 100%;
+  border-radius: 4px;
+
+  transition: all ease var(--transition-duration);
+}
+
+.profile-card .profile-image .info {
+  position: absolute;
+  bottom: 40px;
+  left: 1rem;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 1.5rem;
+
+  color: var(--white-color);
+}
+
+.profile-card .profile-image .info .view-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card .profile-image .info .view-more button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 500px;
+  margin-left: 1rem;
+
+  background-color: rgba(33, 33, 33, 0.8);
+  color: var(--white-color);
+  outline: 0;
+}
+
+.profile-card .profile-image .info .view-more button i.fa {
+  transition: all var(--transition-timing-function) var(--transition-duration);
+}
+
+.profile-card .profile-image .info .view-more button:hover {
+  cursor: pointer;
+}
+
+.profile-card .profile-image .info .view-more button:hover i.fa {
+  margin-left: 0.4rem;
+}
+
+.profile-card .profile-image .info .designation {
+  font-size: 0.8rem;
+}
+
+.profile-card .profile-info {
+  position: relative;
+  transform: translateY(150%);
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem 1.2rem;
+
+  transition: all var(--transition-timing-function) var(--transition-duration);
+}
+
+.profile-card .profile-info .name {
+  font-size: 1.6rem;
+}
+
+.profile-card .profile-info .designation {
+  font-size: 1rem;
+}
+
+.profile-card .profile-info .description {
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+
+  overflow: auto;
+
+  font-size: 0.7rem;
+}
+
+.profile-card .profile-info hr {
+  width: 100%;
+  margin: 0.2rem auto;
+}
+
+.profile-card .profile-info .follow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-bottom: 0.2rem;
+
+  font-size: 1.2rem;
+
+  color: var(--black-color);
+}
+
+.profile-card .profile-info .back-btn {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 2rem;
+
+  font-family: var(--font-family);
+  font-size: 1rem;
+
+  color: var(--white-color);
+  background-color: black;
+  outline: 0;
+
+  transition: background-color var(--transition-timing-function)
+    var(--transition-duration);
+}
+
+.profile-card .profile-info .back-btn:hover {
+  cursor: pointer;
+
+  background-color: color-mix(in srgb, var(--black-color) 90%, white 10%);
+}
+
+.profile-card:hover .profile-image::after {
+  background-color: rgba(var(--white-color), 0.1);
+}
+
+.profile-card.active .profile-image {
+  transform: translate(-32%, -37%) scale(0.2);
+}
+
+.profile-card.active .profile-image::after,
+.profile-card.active .profile-image .info {
+  visibility: hidden;
+}
+
+.profile-card.active .profile-info {
+  transform: translateY(0);
+
+  margin-top: 5.5rem;
+}
