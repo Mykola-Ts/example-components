@@ -1,0 +1,121 @@
+@import './index.css';
+
+:root {
+  --accent-color: #fdca40;
+  --dark-color: #111;
+  --text-color: antiquewhite;
+  --overlay-background-color: rgba(139, 135, 135, 0.5);
+
+  --transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+}
+
+.block {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+
+  overflow: hidden;
+
+  background-position: center;
+  background-size: cover;
+  box-shadow: 2px 2px 15px 2px var(--dark-color);
+}
+
+.block:nth-child(1) {
+  background-image: url('https://images.unsplash.com/photo-1595960684234-49d2a004e753?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=628&q=80');
+}
+
+.block:nth-child(2) {
+  background-image: url('https://images.unsplash.com/photo-1536602012356-86c345795580?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+}
+
+.block:nth-child(3) {
+  background-image: url('https://images.unsplash.com/photo-1547469447-4afec158715b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');
+}
+
+.block:nth-child(4) {
+  background-image: linear-gradient(to right, #000428, #004e92);
+}
+
+.overlay {
+  transform: rotate(45deg) scaleY(2) scaleX(0);
+  z-index: 5;
+
+  width: 80%;
+  height: 100%;
+  border-left: var(--accent-color) 2px solid;
+  border-right: var(--accent-color) 2px solid;
+
+  background-color: var(--overlay-background-color);
+
+  transition: transform 500ms var(--transition-timing-function);
+}
+
+.block:hover .overlay {
+  transform: rotate(45deg) scaleY(2) scaleX(1);
+}
+
+.block-text {
+  position: absolute;
+  top: 25%;
+  transform-origin: bottom center;
+  z-index: 100;
+
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  color: var(--text-color);
+  opacity: 0;
+
+  transition: opacity 300ms ease-in;
+}
+
+.block:hover .block-text {
+  opacity: 1;
+}
+
+.text-head {
+  padding-bottom: 15px;
+
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: var(--accent-color);
+}
+
+.text-quote {
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.text-person {
+  position: relative;
+
+  padding-top: 15px;
+
+  text-align: end;
+
+  color: var(--accent-color);
+}
