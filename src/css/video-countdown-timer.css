@@ -1,0 +1,31 @@
+@import './index.css';
+
+body {
+  padding: 16px;
+
+  color: white;
+  background-color: black;
+}
+
+a {
+  color: white;
+}
+
+footer h2 {
+  font-size: 14px;
+}
+
+small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 12px;
+}
+
+.video-countdown-timer {
+  max-width: min(100%, 500px);
+  height: auto;
+
+  aspect-ratio: 16 / 9;
+}
