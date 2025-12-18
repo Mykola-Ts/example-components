@@ -1,6 +1,7 @@
 @import './index.css';
 @import './coin-preloader.css';
 @import './cup-preloader.css';
+@import './bubble-preloader.css';
 
 body {
   display: flex;
