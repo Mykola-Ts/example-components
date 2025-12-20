@@ -2,6 +2,7 @@
 @import './coin-preloader.css';
 @import './cup-preloader.css';
 @import './bubble-preloader.css';
+@import './pill-preloader.css';
 
 body {
   display: flex;
