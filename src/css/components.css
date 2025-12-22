@@ -2,6 +2,7 @@
 @import './checkbox-animation.css';
 @import './burger-menu-animation.css';
 @import './social-icons-hover-animation.css';
+@import './multi-colored-text.css';
 
 body {
   display: flex;
