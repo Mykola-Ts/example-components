@@ -2,6 +2,7 @@
 @import './pulsing-button.css';
 @import './click-me-button.css';
 @import './gradient-button-hover.css';
+@import './button-animation.css';
 
 body {
   display: flex;
