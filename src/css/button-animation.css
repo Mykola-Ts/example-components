@@ -1,6 +1,9 @@
 :root {
   --dark-color: #272838;
   --white-color: #fff;
+
+  --transition-duration: 0.5s;
+  --transition-timing-function: ease;
 }
 
 .button-animation-wrapper {
@@ -11,13 +14,6 @@
   padding: 100px 0;
 
   background-color: var(--dark-color);
-}
-
-.custom-button:hover {
-  text-decoration: none;
-
-  color: var(--dark-color);
-  background-color: var(--white-color);
 }
 
 .custom-button {
@@ -31,7 +27,16 @@
 
   color: var(--white-color);
 
-  transition: all 0.5s;
+  transition: color var(--transition-duration) var(--transition-timing-function),
+    background-color var(--transition-duration)
+      var(--transition-timing-function);
+}
+
+.custom-button:hover {
+  text-decoration: none;
+
+  color: var(--dark-color);
+  background-color: var(--white-color);
 }
 
 .custom-button::before,
@@ -46,7 +51,10 @@
   border-style: solid;
   border-color: var(--white-color);
 
-  transition: all 0.5s;
+  transition: border-color var(--transition-duration)
+      var(--transition-timing-function),
+    width var(--transition-duration) var(--transition-timing-function),
+    height var(--transition-duration) var(--transition-timing-function);
 }
 
 .custom-button::before {
