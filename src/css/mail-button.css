@@ -1,0 +1,196 @@
+:root {
+  --white-color: #ffffff;
+  --letter-color: #cb5a5e;
+  --letter-body-light-color: #e95f55;
+  --letter-body-middle-color: #e15349;
+  --letter-body-dark-color: #cf4a43;
+  --background-color: #323641;
+
+  --transition-duration: 0.4s;
+}
+
+.letter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px 0;
+
+  background-color: var(--background-color);
+}
+
+.letter-image {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  width: 200px;
+  height: 200px;
+  border: none;
+
+  cursor: pointer;
+
+  background-color: transparent;
+}
+
+.animated-mail {
+  position: absolute;
+
+  width: 200px;
+  height: 150px;
+
+  transition: var(--transition-duration);
+}
+
+.letter-image:hover .animated-mail {
+  transform: translateY(50px);
+}
+
+.letter {
+  position: absolute;
+  left: 20px;
+  bottom: 0px;
+  z-index: 1;
+
+  width: 160px;
+  height: 60px;
+
+  overflow: hidden;
+
+  background-color: var(--white-color);
+
+  transition: var(--transition-duration) 0.2s;
+}
+
+.letter-image:hover .letter {
+  height: 180px;
+}
+
+.letter-border {
+  width: 100%;
+  height: 10px;
+
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--letter-color),
+    var(--letter-color) 8px,
+    transparent 8px,
+    transparent 18px
+  );
+}
+
+.letter-title {
+  width: 40%;
+  height: 10px;
+  margin-top: 10px;
+  margin-left: 5px;
+
+  background-color: var(--letter-color);
+}
+
+.letter-context {
+  width: 20%;
+  height: 10px;
+  margin-top: 10px;
+  margin-left: 5px;
+
+  background-color: var(--letter-color);
+}
+
+.letter-stamp {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-top: 30px;
+  margin-left: 120px;
+
+  background-color: var(--letter-color);
+  opacity: 0.3;
+}
+
+.body {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+
+  width: 0;
+  height: 0;
+  border-width: 0 0 100px 200px;
+
+  border-style: solid;
+  border-color: transparent transparent var(--letter-body-light-color)
+    transparent;
+}
+
+.top-fold {
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+  transform-origin: 50% 0%;
+
+  width: 0;
+  height: 0;
+  border-width: 50px 100px 0 100px;
+
+  border-style: solid;
+  border-color: var(--letter-body-dark-color) transparent transparent
+    transparent;
+
+  transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+}
+
+.letter-image:hover .animated-mail .top-fold {
+  transform: rotateX(180deg);
+  z-index: 0;
+
+  transition: transform var(--transition-duration), z-index 0.2s;
+}
+
+.back-fold {
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+
+  width: 200px;
+  height: 100px;
+
+  background-color: var(--letter-body-dark-color);
+}
+
+.left-fold {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+
+  width: 0;
+  height: 0;
+  border-width: 50px 0 50px 100px;
+
+  border-style: solid;
+  border-color: transparent transparent transparent
+    var(--letter-body-middle-color);
+}
+
+.shadow {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 400px;
+  height: 30px;
+  border-radius: 100%;
+
+  background-image: radial-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
+
+  transition: var(--transition-duration);
+}
+
+.letter-image:hover .shadow {
+  width: 250px;
+}
