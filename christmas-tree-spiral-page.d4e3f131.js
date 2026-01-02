@@ -1,0 +1,2 @@
+const e=document.getElementById("tree");for(let t=0;t<50;t+=1){const{radius:d,rotate:n,y:r,speed:s,delay:p,appear:l}={rotate:28.8*(50-(a=t)),radius:.25*(50-a),y:2*a,speed:10*Math.random(),delay:-10*Math.random(),appear:a},o=document.createElement("div");o.className="tree-light",o.style.cssText=`\n      --appear: ${l};\n      --y: ${r};\n      --rotate: ${n};\n      --radius: ${d};\n      --speed: ${s};\n      --delay: ${p};\n    `,e.appendChild(o)}var a;
+//# sourceMappingURL=christmas-tree-spiral-page.d4e3f131.js.map
