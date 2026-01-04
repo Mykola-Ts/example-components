@@ -4,6 +4,7 @@
 @import './gradient-button-hover.css';
 @import './button-animation.css';
 @import './mail-button.css';
+@import './particle-button.css';
 
 body {
   display: flex;
