@@ -3,6 +3,7 @@
 @import './burger-menu-animation.css';
 @import './social-icons-hover-animation.css';
 @import './multi-colored-text.css';
+@import './context-menu.css';
 
 body {
   display: flex;

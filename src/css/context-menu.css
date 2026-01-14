@@ -1,0 +1,142 @@
+:root {
+  --color-bg-primary: #d0d6df;
+  --color-bg-primary-offset: #f1f3f7;
+  --color-bg-secondary: #fff;
+  --color-text-primary: #3a3c42;
+  --color-text-primary-offset: #898c94;
+  --color-orange: #dc9960;
+  --color-green: #1eb8b1;
+  --color-purple: #657cc4;
+  --color-black: var(--color-text-primary);
+  --color-red: #d92027;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 10px 20px rgba(#404040, 0.15);
+}
+
+.menu-list {
+  display: block;
+
+  width: 100%;
+  padding: 8px;
+  margin: 0;
+}
+
+.menu-list + .menu-list {
+  border-top: 1px solid #ddd;
+}
+
+.menu-sub-list {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  right: 0;
+  z-index: 100;
+
+  display: none;
+  flex-direction: column;
+
+  width: 100%;
+  border-radius: 10px;
+  padding: 8px;
+
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 10px 20px rgba(#404040, 0.15);
+}
+
+.menu-sub-list:hover {
+  display: flex;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 8px;
+  padding-right: 36px;
+
+  font: inherit;
+  text-align: left;
+
+  background-color: var(--color-bg-secondary);
+}
+
+.menu-button:hover {
+  background-color: var(--color-bg-primary-offset);
+}
+
+.menu-button:hover + .menu-sub-list {
+  display: flex;
+}
+
+.menu-button:hover svg {
+  stroke: var(--color-text-primary);
+}
+
+.menu-button svg {
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+
+  stroke: var(--color-text-primary-offset);
+}
+
+.menu-button svg:nth-of-type(2) {
+  position: absolute;
+  right: 8px;
+
+  margin-right: 0;
+}
+
+.menu-button--delete:hover {
+  color: var(--color-red);
+}
+
+.menu-button--delete:hover svg:first-of-type {
+  stroke: var(--color-red);
+}
+
+.menu-button--orange svg:first-of-type {
+  stroke: var(--color-orange);
+}
+
+.menu-button--green svg:first-of-type {
+  stroke: var(--color-green);
+}
+
+.menu-button--purple svg:first-of-type {
+  stroke: var(--color-purple);
+}
+
+.menu-button--black svg:first-of-type {
+  stroke: var(--color-black);
+}
+
+.menu-button--checked svg:nth-of-type(2) {
+  stroke: var(--color-purple);
+}
