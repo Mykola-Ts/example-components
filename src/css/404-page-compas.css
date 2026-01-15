@@ -1,0 +1,52 @@
+@import './index.css';
+
+:root {
+  --error-size: 225px;
+  --font-fam: 'Open Sans', sans-serif;
+
+  --text-color: #e05038;
+  --background-color: #e6af4b;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  font-family: var(--font-fam);
+
+  background-color: var(--background-color);
+}
+
+.error-title {
+  margin: 0;
+  padding: 0l;
+
+  font-size: var(--error-size);
+  font-weight: 300;
+
+  color: var(--text-color);
+}
+
+.error-title svg {
+  display: inline-block;
+
+  height: 175px;
+
+  overflow: visible;
+}
+
+.icon-compass .needle {
+  transform-origin: center;
+
+  animation: 3.5s cubic-bezier(0.5, -0.5, 0.5, 1.5) 1s infinite spin;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
