@@ -4,6 +4,7 @@
 @import './social-icons-hover-animation.css';
 @import './multi-colored-text.css';
 @import './context-menu.css';
+@import './share-your-profile.css';
 
 body {
   display: flex;

@@ -1,0 +1,136 @@
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+:root {
+  --blue: #3e82fb;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.social {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 300px;
+  height: 70px;
+  border-radius: 50px;
+  margin: auto;
+
+  overflow: hidden;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #9aa9b5;
+  background-color: #fff;
+  box-shadow: inset 0 0 0 2px #dbe3ea;
+
+  transition:
+    background-color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+
+.social:hover {
+  background-color: rgba(62, 130, 251, 1);
+  box-shadow:
+    inset 0 0 0 2px #dbe3ea,
+    0 1rem 20px rgba(#3e82fb, 0.2);
+}
+
+.social span,
+.social div {
+  margin: auto;
+}
+
+.social:hover .social-share-text {
+  color: transparent;
+
+  transition: color 0.2s ease-out;
+}
+
+.social-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+
+  background-color: rgba(62, 130, 251, 0);
+
+  transition: all 0.25s ease;
+}
+
+.social:hover .social-links > a {
+  animation: elastic 0.5s ease-out forwards 0s;
+}
+
+.social-links a {
+  transform: translate3d(0, 60px, 0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin: auto;
+
+  font-size: 15px;
+  line-height: 40px;
+
+  color: var(--blue);
+  background-color: #fff;
+
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.social-links a:hover {
+  color: #fff;
+  background-color: #6aa5ff;
+}
+
+.social:hover .social-links > a:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.social:hover .social-links > a:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.social:hover .social-links > a:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.social:hover .social-links > a:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+@keyframes elastic {
+  0% {
+    transform: translate3d(0, 60px, 0);
+  }
+  40% {
+    transform: translate3d(0, -5px, 0);
+  }
+  70% {
+    transform: translate3d(0, 5px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
