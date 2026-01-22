@@ -5,6 +5,7 @@
 @import './multi-colored-text.css';
 @import './context-menu.css';
 @import './share-your-profile.css';
+@import './decryption-effect.css';
 
 body {
   display: flex;

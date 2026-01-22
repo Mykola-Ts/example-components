@@ -1,0 +1,65 @@
+:root {
+  --decryption-primary-color: rgb(193, 187, 160);
+  --black-color: rgb(20, 13, 9);
+}
+
+.decryption-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+
+  width: 100%;
+  padding: 80px 0;
+
+  font-family: 'Anonymous Pro', monospace;
+  text-align: center;
+
+  background-color: var(--black-color);
+}
+
+.decryption-title {
+  width: 100%;
+
+  font-size: 24px;
+
+  color: var(--decryption-primary-color);
+}
+
+.decryption-title:before,
+.decryption-title:after {
+  word-break: break-all;
+
+  opacity: 0.5;
+}
+
+.decryption-title:before,
+.decryption-title:after {
+  content: attr(data-before);
+}
+
+.decryption-title:after {
+  content: attr(data-after);
+}
+
+.again-button {
+  transform: translate3d(0, 50px, 0);
+
+  padding: 20px 40px;
+
+  font: inherit;
+
+  cursor: pointer;
+
+  color: var(--black-color);
+  background-color: var(--decryption-primary-color);
+  opacity: 0;
+
+  transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+}
+
+.again-button.show {
+  transform: translate3d(0, 30px, 0);
+
+  opacity: 1;
+}
