@@ -1,0 +1,130 @@
+:root {
+  --color: #fff;
+  --background-color: #222;
+
+  --transition-duration: 0.5s;
+  --transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.icon-hover-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 80px 0;
+
+  background-color: var(--background-color);
+}
+
+.icon-hover-list {
+  display: flex;
+  gap: 50px;
+}
+
+.icon-hover-list-item {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 80px;
+  height: 80px;
+
+  cursor: pointer;
+}
+
+.icon-hover-list-item::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 30px;
+
+  box-shadow:
+    0 0 0 10px var(--color),
+    0 0 0 20px var(--background-color),
+    0 0 0 22px var(--color);
+
+  transition: inset var(--transition-duration) var(--transition-timing-function);
+}
+
+.icon-hover-list-item:hover::before {
+  inset: 15px;
+}
+
+.icon-hover-list-item::after {
+  content: '';
+
+  position: absolute;
+  transform: rotate(45deg);
+
+  inset: 0;
+
+  background-color: var(--background-color);
+
+  transition:
+    transform var(--transition-duration) var(--transition-timing-function),
+    inset var(--transition-duration) var(--transition-timing-function);
+}
+
+.icon-hover-list-item:hover::after {
+  transform: rotate(0deg);
+
+  inset: 0px;
+}
+
+.icon-hover-list-item a {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.icon-hover-list-item a i {
+  font-size: 2em;
+
+  color: var(--color);
+  opacity: 1;
+
+  transition:
+    transform var(--transition-duration) var(--transition-timing-function),
+    color var(--transition-duration) var(--transition-timing-function);
+}
+
+.icon-hover-list-item:hover a i {
+  transform: translateY(-40%);
+
+  color: var(--color);
+}
+
+.icon-hover-list-item a span {
+  position: absolute;
+  transform: scale(0) translateY(200%);
+
+  font-family: sans-serif;
+
+  color: var(--color);
+  opacity: 0;
+
+  transition:
+    transform var(--transition-duration) var(--transition-timing-function),
+    opacity var(--transition-duration) var(--transition-timing-function);
+}
+
+.icon-hover-list-item:hover a span {
+  transform: scale(1) translateY(100%);
+
+  opacity: 1;
+}
+
+.icon-hover-list-item:hover a i,
+.icon-hover-list-item a span {
+  filter: drop-shadow(0 0 20px var(--color)) drop-shadow(0 0 40px var(--color))
+    drop-shadow(0 0 60px var(--color));
+}

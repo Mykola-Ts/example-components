@@ -1,3 +1,6 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
 @import './index.css';
 @import './checkbox-animation.css';
 @import './burger-menu-animation.css';
@@ -6,6 +9,7 @@
 @import './context-menu.css';
 @import './share-your-profile.css';
 @import './decryption-effect.css';
+@import './icon-hover-effect.css';
 
 body {
   display: flex;
